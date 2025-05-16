@@ -20,6 +20,12 @@ variable "aci_connector_linux_subnet_name" {
   description = "(Optional) aci_connector_linux subnet name"
 }
 
+variable "enable_azapi_update_resource" {
+  type        = bool
+  default     = false
+  description = "whether to create the azapi update resource or not"
+}
+
 variable "admin_username" {
   type        = string
   default     = null

@@ -693,7 +693,8 @@ resource "time_sleep" "interval_before_cluster_update" {
 }
 
 resource "azapi_update_resource" "aks_cluster_post_create" {
-  type = "Microsoft.ContainerService/managedClusters@2024-02-01"
+  count = var.enable_azapi_update_resource == true ? 1 : 0
+  type  = "Microsoft.ContainerService/managedClusters@2024-02-01"
   body = {
     properties = {
       kubernetesVersion = var.kubernetes_version
