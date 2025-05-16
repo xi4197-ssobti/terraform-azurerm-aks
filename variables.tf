@@ -1310,6 +1310,24 @@ variable "node_resource_group" {
   description = "The auto-generated Resource Group which contains the resources for this Managed Kubernetes Cluster. Changing this forces a new resource to be created."
 }
 
+variable "rbac_aad_managed" {
+  description = "Enable managed AAD integration for AKS. If true, AKS manages AAD server integration."
+  type        = bool
+  default     = false
+}
+
+variable "pod_subnet_id" {
+  description = "The ID of the subnet where pods will be scheduled (used for Azure CNI networking)."
+  type        = string
+  default     = null
+}
+
+variable "vnet_subnet_id" {
+  description = "The ID of the subnet to which the AKS cluster nodes will be attached."
+  type        = string
+  default     = null
+}
+
 variable "oidc_issuer_enabled" {
   type        = bool
   default     = false
